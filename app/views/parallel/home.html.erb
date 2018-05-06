@@ -1,0 +1,34 @@
+<!-- <div class="entry">
+  <h3 class="h3">How much a dollar really cost?</h3>
+  <div class="outer">
+    <p>N<span id="dollar"><%= @formattedrate %></span></p>
+  </div>
+</div>
+
+<p class="left"><a href="bdcrate">BDC Rates</a></p>
+<p class="source">Scraped from <a target="_blank" href="http://abokifx.com">abokifx.com</a></p> -->
+
+<!--<%= @name.each do |c, index| %>
+<div><%= index %> <%= c.text %></div>
+<% end %>
+
+<%= @price.each do |c, index| %>
+<div><%= index %> <%= c.text %></div>
+<% end %>-->
+
+<p class="left"><a href="bdcrate">Honest Bee</a></p>
+
+Hello
+<table style="width:100%">
+	<tr>
+		<th>Name</th>
+		<th>Price</th> 
+	</tr>
+
+	<%= @product.each do |c, index| %>
+	<tr>
+		<td><%= c.css('a.pdt_title').text %></td>
+		<td><%= c.css('span.pdt_C_price').text %></td>
+	</tr>
+	<% end %>
+</table>
