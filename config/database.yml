@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: scrapertutorial_production
+  database: scrapertutorial_development
   # username: scrapertutorial
   # password: <%= ENV['SCRAPERTUTORIAL_DATABASE_PASSWORD'] %>
