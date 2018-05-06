@@ -8,14 +8,6 @@
 <p class="left"><a href="bdcrate">BDC Rates</a></p>
 <p class="source">Scraped from <a target="_blank" href="http://abokifx.com">abokifx.com</a></p> -->
 
-<!--<%= @name.each do |c, index| %>
-<div><%= index %> <%= c.text %></div>
-<% end %>
-
-<%= @price.each do |c, index| %>
-<div><%= index %> <%= c.text %></div>
-<% end %>-->
-
 <p class="left"><a href="bdcrate">Honest Bee</a></p>
 
 Hello
@@ -25,7 +17,7 @@ Hello
 		<th>Price</th> 
 	</tr>
 
-	<%= @product.each do |c, index| %>
+	<% @product.each do |c, index| %>
 	<tr>
 		<td><%= c.css('a.pdt_title').text %></td>
 		<td><%= c.css('span.pdt_C_price').text %></td>

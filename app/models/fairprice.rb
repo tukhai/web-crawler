@@ -1,0 +1,2 @@
+class Fairprice < ApplicationRecord
+end

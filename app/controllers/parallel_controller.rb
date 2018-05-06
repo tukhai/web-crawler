@@ -9,21 +9,24 @@ class ParallelController < ApplicationController
 	    # rate = entries.css('table')[0].css('tr')[1].css('td')[1].text
 	    # @formattedrate = rate[6..8]
 
-	    # doc.css('.product').each do |item|
-	    # 	puts item.content 
-	    # end
-
 	    @product = doc.css('.product')
 	    puts @product.length
 
+	    @product.each_with_index do |c, index|
+		    item = Fairprice.find_or_initialize_by(id: index)
+		    item.name = c.css('a.pdt_title').text
+		    item.price = c.css('span.pdt_C_price').text
+		    item.save!
+		end
+
 	    # entries = doc.css('.product').css('a.pdt_title')
-	    @name = doc.css('.product').css('a.pdt_title')
+	    #@name = doc.css('.product').css('a.pdt_title')
 
 	    # doc.css('.product').css('a.pdt_title').each do |name|
 	    # 	puts name.text
 	    # end
 
-	    @price = doc.css('.product').css('div.pdt_price')
+	    #@price = doc.css('.product').css('div.pdt_price')
 
 	    render template: 'parallel/home'
 	end
