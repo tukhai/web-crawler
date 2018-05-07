@@ -1,0 +1,2 @@
+module HonestbeeHelper
+end

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/bdcrate' => 'bdc#bdcrate'
 
   get 'fairprice/list'
+  get 'honestbee/list'
 end

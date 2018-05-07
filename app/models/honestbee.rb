@@ -1,0 +1,2 @@
+class Honestbee < ApplicationRecord
+end

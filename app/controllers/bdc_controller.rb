@@ -8,8 +8,8 @@ class BdcController < ApplicationController
 	    Headless.ly do
 		    browser = Watir::Browser.new :chrome
 
-			browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
-			# browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice/departments/8243')
+			# browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
+			browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice/departments/7024')
 			# browser.link(text: 'All floorplans').click
 			# browser.scroll.to :bottom
 
@@ -30,8 +30,7 @@ class BdcController < ApplicationController
 		    	sleep 5
 			end
 
-			while browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists?  do
-				puts "p"
+			while browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists? do
 				puts browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists?
 				puts "clicking load more..."
 				browser.driver.execute_script("document.getElementsByClassName('_23Yt64dDFIJICAEyYZ4-iZ')[0].click();")
@@ -42,17 +41,18 @@ class BdcController < ApplicationController
 
 		    doc = Nokogiri::HTML(browser.html)
 
-		    # entries = doc.css('.lagos-market-rates')
-		    # rate = entries.css('table')[0].css('tr')[1].css('td')[1].text
-		    # @formattedrate = rate[6..8]
-
 		    @product = doc.css('.XaRs403S_a6U7-8Wfu_c3')
+
+		    @product.each_with_index do |c, index|
+			    item = Honestbee.find_or_initialize_by(id: index)
+			    item.name = c.css('._2UCShViKs8ydkfj-XuvUhM').text
+			    item.price = c.css('_23g1UkP8VGFqvGuLjUsc-H span').text
+			    item.save!
+			end
 
 		    # @product.each_with_index do |c, index|
 		    # 	puts "#{index} #{c.css('._2UCShViKs8ydkfj-XuvUhM').text} #{c.css('._23g1UkP8VGFqvGuLjUsc-H span').text}"
 		    # end
-
-		    puts @product.length
 
 		    browser.close
 		end
