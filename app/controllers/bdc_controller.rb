@@ -8,8 +8,8 @@ class BdcController < ApplicationController
 	    Headless.ly do
 		    browser = Watir::Browser.new :chrome
 
-			# browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
-			browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice/departments/7024')
+			browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
+			# browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice/departments/7024')
 			# browser.link(text: 'All floorplans').click
 			# browser.scroll.to :bottom
 
