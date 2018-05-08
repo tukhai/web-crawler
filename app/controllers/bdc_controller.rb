@@ -39,7 +39,7 @@ class BdcController < ApplicationController
 		end
 
 		# while browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists? do
-		for i in 0..10
+		for i in 0..5
 			# if browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists?
 			# if driver.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists?
 				puts "#{i} clicking load more..."
