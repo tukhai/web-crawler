@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application allows to crawl the product items in 2 links:
+- [I'm an inline-style link](https://www.honestbee.sg/en/groceries/stores/fairprice)
+- [I'm an inline-style link](https://www.fairprice.com.sg/)
 
-Things you may want to cover:
+The home page is at [I'm an inline-style link](https://desolate-gorge-69355.herokuapp.com), which has:
 
-* Ruby version
+* 2 buttons to crawl data items from each sites, and save to Postgres database
 
-* System dependencies
+* Links to go to the 2 pages, which display part of the data of each website:
+- Honestbee: [I'm an inline-style link](https://desolate-gorge-69355.herokuapp.com/honestbee/list)
+- FairPrice: [I'm an inline-style link](https://desolate-gorge-69355.herokuapp.com/fairprice/list)
 
-* Configuration
+* Links of Price Difference API: [I'm an inline-style link](https://desolate-gorge-69355.herokuapp.com/fairprice/list)
+(https://desolate-gorge-69355.herokuapp.com/price_difference)
 
-* Database creation
+# TODO
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Improve the crawling by using fragment parsing of Selenium WebDriver package in order to crawl full database from each websites
