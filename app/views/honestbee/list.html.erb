@@ -1,6 +1,24 @@
 <% if @honestbees.blank? %>
 <p>There are no item from honestbee in our database, please fetch it.</p>
 <% else %>
-<p>These are <%= @honestbees %> items in our honestbee database</p>
+<p>These are items in our honestbee database</p>
+
+<table id="main-table" style="width:100%">
+	<tr>
+		<th>#</th>
+		<th>Name</th>
+		<th>Price</th> 
+		<th>Extra Info</th> 
+	</tr>
+
+	<% @honestbees.each do |c| %>
+		<tr>
+			<td><%= c.id %></td>
+			<td><%= c.name %></td>
+			<td><%= c.price %></td>
+			<td><%= c.extraInfo %></td> 
+		</tr>
+	<% end %>
+</table>
 
 <% end %>

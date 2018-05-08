@@ -1,6 +1,6 @@
 class HonestbeeController < ApplicationController
 	def list
-	    @honestbees = Honestbee.all.length
+	    @honestbees = Honestbee.all
 	    puts @honestbees
 	end
 end
