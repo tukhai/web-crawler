@@ -13,9 +13,10 @@ class BdcController < ApplicationController
 		# driver.navigate.to "https://stackoverflow.com"
 
 	    # Headless.ly do
-		    browser = Watir::Browser.new :chrome
+		 #    browser = Watir::Browser.new :chrome
 
-			browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
+			# browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
+			browser = driver.navigate.to "https://www.honestbee.sg/en/groceries/stores/fairprice"
 			# browser.link(text: 'All floorplans').click
 			# browser.scroll.to :bottom
 
