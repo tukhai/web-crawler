@@ -6,7 +6,7 @@ class BdcController < ApplicationController
 	    require 'headless'
 
 	    # Headless.ly do
-		    browser = Watir::Browser.new :chrome
+		    browser = Watir::Browser.new
 
 			browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
 			# browser.link(text: 'All floorplans').click
