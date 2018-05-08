@@ -8,21 +8,52 @@
 <p class="left"><a href="bdcrate">BDC Rates</a></p>
 <p class="source">Scraped from <a target="_blank" href="http://abokifx.com">abokifx.com</a></p> -->
 
-<p class="left"><a href="bdcrate">Honest Bee</a></p>
+<style>
+	#fairprice-text, #honestbee-text, #fairprice-crawl-text, #honestbee-crawl-text {
+		display: none;
+	}
+</style>
+<br><br>
 
-Hello
-<table style="width:100%">
-	<tr>
-		<th>Name</th>
-		<th>Price</th> 
-		<th>Extra Info</th>
-	</tr>
+<button class="fairprice-button">Crawl Fairprice</button>&nbsp;&nbsp;&nbsp;
+<span id="fairprice-crawl-text">CRAWLING...</span>
+<br>
+<p id="fairprice-text">These are <span id="fairprice"></span> items in our fairprice database</p>
+<p>go to <a href="/fairprice/list">/fairprice/list</a> to see the data in the database</p>
 
-	<% @product.each do |c, index| %>
-	<tr>
-		<td><%= c.css('a.pdt_title').inner_html.split(" <span")[0] %></td>
-		<td><%= c.css('span.pdt_C_price').text %></td>
-		<td><%= c.css('span.pdt_Tweight').text %></td>
-	</tr>
-	<% end %>
-</table>
+<br><br><br><br>
+
+<button class="honestbee-button">Crawl Honestbee</button>&nbsp;&nbsp;&nbsp;
+<span id="honestbee-crawl-text">CRAWLING...</span>
+<br>
+<p id="honestbee-text">These are <span id="honestbee"></span> items in our honestbee database</p>
+<p>go to <a href="/honestbee/list">/honestbee/list</a> to see the data in the database</p>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(".honestbee-button").click(function(){
+		$("#honestbee-crawl-text").css("display", "initial");
+        $.get("/bdcrate", function(data, status){
+            // console.log("Data: " + data + "\nStatus: " + status);
+            if (data) {
+            	$("#honestbee-crawl-text").css("display", "none");
+            	$("span#honestbee").html(data);
+            	$("#honestbee-text").css("display", "initial");
+            }
+        });
+    });
+
+    $(".fairprice-button").click(function(){
+		$("#fairprice-crawl-text").css("display", "initial");
+        $.get("/parallel", function(data, status){
+            // console.log("Data: " + data + "\nStatus: " + status);
+            if (data) {
+            	$("#fairprice-crawl-text").css("display", "none");
+            	$("span#fairprice").html(data);
+            	$("#fairprice-text").css("display", "initial");
+            }
+        });
+    });
+</script>

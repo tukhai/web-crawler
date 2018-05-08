@@ -29,6 +29,7 @@ class ParallelController < ApplicationController
 
 	    #@price = doc.css('.product').css('div.pdt_price')
 
-	    render template: 'parallel/home'
+	    # render template: 'parallel/home'
+	    render :json => @product.length
 	end
 end
