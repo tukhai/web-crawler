@@ -5,7 +5,7 @@ class BdcController < ApplicationController
 	    require 'watir'
 	    require 'headless'
 
-	    Headless.ly do
+	    # Headless.ly do
 		    browser = Watir::Browser.new :chrome
 
 			browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
@@ -59,7 +59,7 @@ class BdcController < ApplicationController
 			end
 
 		    browser.close
-		end
+		# end
 
 	    render template: 'bdc/home'
 	end
