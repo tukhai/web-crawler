@@ -15,14 +15,14 @@
 	<tr>
 		<th>Name</th>
 		<th>Price</th> 
-		<!-- <th>Age</th> -->
+		<th>Extra Info</th>
 	</tr>
 
 	<% @product[0..10].each do |c, index| %>
 		<tr>
 			<td><%= c.css('._2UCShViKs8ydkfj-XuvUhM').text %></td>
 			<td><%= c.css('._23g1UkP8VGFqvGuLjUsc-H span').text %></td> 
-			<!-- <td>94</td> -->
+			<td><%= c.css('._3MvGCVMGqgv4KoGQ2wGzfk').text %></td>
 		</tr>
 	<% end %>
 </table>

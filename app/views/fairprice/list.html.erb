@@ -8,6 +8,7 @@
 		<th>#</th>
 		<th>Name</th>
 		<th>Price</th> 
+		<th>Extra Info</th> 
 	</tr>
 
 	<% @fairprices.each do |c| %>
@@ -15,6 +16,7 @@
 			<td><%= c.id %></td>
 			<td><%= c.name %></td>
 			<td><%= c.price %></td>
+			<td><%= c.extraInfo %></td>
 		</tr>
 	<% end %>
 </table>

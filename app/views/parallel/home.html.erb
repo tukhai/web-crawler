@@ -15,12 +15,14 @@ Hello
 	<tr>
 		<th>Name</th>
 		<th>Price</th> 
+		<th>Extra Info</th>
 	</tr>
 
 	<% @product.each do |c, index| %>
 	<tr>
-		<td><%= c.css('a.pdt_title').text %></td>
+		<td><%= c.css('a.pdt_title').inner_html.split(" <span")[0] %></td>
 		<td><%= c.css('span.pdt_C_price').text %></td>
+		<td><%= c.css('span.pdt_Tweight').text %></td>
 	</tr>
 	<% end %>
 </table>

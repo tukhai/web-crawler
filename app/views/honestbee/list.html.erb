@@ -1,22 +1,6 @@
-<% if @fairprices.blank? %>
-<p>There are no item from fairprice in our database, please fetch it.</p>
+<% if @honestbees.blank? %>
+<p>There are no item from honestbee in our database, please fetch it.</p>
 <% else %>
-<p>These are items in our fairprice database</p>
-
-<table id="main-table" style="width:100%">
-	<tr>
-		<th>#</th>
-		<th>Name</th>
-		<th>Price</th> 
-	</tr>
-
-	<% @fairprices.each do |c| %>
-		<tr>
-			<td><%= c.id %></td>
-			<td><%= c.name %></td>
-			<td><%= c.price %></td>
-		</tr>
-	<% end %>
-</table>
+<p>These are <%= @honestbees %> items in our honestbee database</p>
 
 <% end %>

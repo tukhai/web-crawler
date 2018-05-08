@@ -14,8 +14,9 @@ class ParallelController < ApplicationController
 
 	    @product.each_with_index do |c, index|
 		    item = Fairprice.find_or_initialize_by(id: index)
-		    item.name = c.css('a.pdt_title').text
+		    item.name = c.css('a.pdt_title').inner_html.split(" <span")[0]
 		    item.price = c.css('span.pdt_C_price').text
+		    item.extraInfo = c.css('span.pdt_Tweight').text
 		    item.save!
 		end
 

@@ -5,11 +5,10 @@ class BdcController < ApplicationController
 	    require 'watir'
 	    require 'headless'
 
-	    Headless.ly do
+	    # Headless.ly do
 		    browser = Watir::Browser.new :chrome
 
 			browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice')
-			# browser.goto('https://www.honestbee.sg/en/groceries/stores/fairprice/departments/7024')
 			# browser.link(text: 'All floorplans').click
 			# browser.scroll.to :bottom
 
@@ -30,11 +29,17 @@ class BdcController < ApplicationController
 		    	sleep 5
 			end
 
-			while browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists? do
-				puts browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists?
-				puts "clicking load more..."
-				browser.driver.execute_script("document.getElementsByClassName('_23Yt64dDFIJICAEyYZ4-iZ')[0].click();")
-				sleep 5
+			# while browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists? do
+			for i in 0..5
+				if browser.element(class: "_23Yt64dDFIJICAEyYZ4-iZ").exists?
+					puts "#{i} clicking load more..."
+					begin
+						browser.driver.execute_script("document.getElementsByClassName('_23Yt64dDFIJICAEyYZ4-iZ')[0].click();")
+					rescue Net::ReadTimeout => error
+						nil
+					end
+					sleep 5
+				end
 			end
 
 			puts "Finished load the page"
@@ -43,19 +48,18 @@ class BdcController < ApplicationController
 
 		    @product = doc.css('.XaRs403S_a6U7-8Wfu_c3')
 
+		    puts @product.length
+
 		    @product.each_with_index do |c, index|
 			    item = Honestbee.find_or_initialize_by(id: index)
 			    item.name = c.css('._2UCShViKs8ydkfj-XuvUhM').text
-			    item.price = c.css('_23g1UkP8VGFqvGuLjUsc-H span').text
+			    item.price = c.css('._23g1UkP8VGFqvGuLjUsc-H span').text
+			    item.extraInfo = c.css('._3MvGCVMGqgv4KoGQ2wGzfk').text
 			    item.save!
 			end
 
-		    # @product.each_with_index do |c, index|
-		    # 	puts "#{index} #{c.css('._2UCShViKs8ydkfj-XuvUhM').text} #{c.css('._23g1UkP8VGFqvGuLjUsc-H span').text}"
-		    # end
-
 		    browser.close
-		end
+		# end
 
 	    render template: 'bdc/home'
 	end
