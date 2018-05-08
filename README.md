@@ -4,7 +4,7 @@ This application allows to crawl the product items in 2 links:
 - [Honestbee](https://www.honestbee.sg/en/groceries/stores/fairprice)
 - [Fairprice](https://www.fairprice.com.sg/)
 
-The home page is at [I'm an inline-style link](https://desolate-gorge-69355.herokuapp.com), which has:
+[The home page](https://desolate-gorge-69355.herokuapp.com) has:
 
 * 2 buttons to crawl data items from each sites, and save to Postgres database
 
