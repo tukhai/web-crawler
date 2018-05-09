@@ -14,4 +14,8 @@ This application allows to crawl the product items in 2 links:
 
 # TODO
 
-* Improve the crawling by using fragment parsing of Selenium WebDriver package in order to crawl full database from each websites
+* Improve the crawling by using fragment parsing of Selenium WebDriver package in order to crawl full database from each websites: Only parse the newly rendered html part after clicking 'Load More' button and save into databas
+
+* Fixing the crash bug on heroku production (excess memory) when clicking 'Load More' buttons many times
+
+* Include page number for Price Difference API so it can provide item 10th to 19th, 20th to 29th, etc.
